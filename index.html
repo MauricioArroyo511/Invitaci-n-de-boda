@@ -20,9 +20,9 @@
 
   <style>
 
-    /* =========================
+    /* ======================================
        ESTILOS GENERALES
-    ========================== */
+    ====================================== */
 
     body{
       background: #f8f4ef;
@@ -43,11 +43,12 @@
       padding: 5rem 0;
     }
 
-    /* =========================
+    /* ======================================
        HERO PRINCIPAL
-    ========================== */
+    ====================================== */
 
     .hero{
+
       height: 100vh;
 
       background:
@@ -88,9 +89,9 @@
       letter-spacing: 2px;
     }
 
-    /* =========================
+    /* ======================================
        CONTADOR
-    ========================== */
+    ====================================== */
 
     #countdown{
       margin-top: 2rem;
@@ -98,9 +99,75 @@
       letter-spacing: 3px;
     }
 
-    /* =========================
+    /* ======================================
+       VIDEO
+    ====================================== */
+
+    .video-section{
+
+      position: relative;
+
+      width: 100%;
+
+      height: 80vh;
+
+      overflow: hidden;
+
+      border-radius: 2rem;
+
+      margin-bottom: 4rem;
+    }
+
+    .video-romantico{
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    .video-overlay{
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background: rgba(0,0,0,.35);
+
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      color: white;
+
+      padding: 2rem;
+    }
+
+    .video-overlay h2{
+
+      font-size: 4rem;
+
+      margin-bottom: 1rem;
+    }
+
+    .video-overlay p{
+
+      font-size: 1.2rem;
+
+      letter-spacing: 2px;
+    }
+
+    /* ======================================
        TARJETAS
-    ========================== */
+    ====================================== */
 
     .card-custom{
 
@@ -129,9 +196,9 @@
       transform: translateY(0);
     }
 
-    /* =========================
-       DIVISOR DECORATIVO
-    ========================== */
+    /* ======================================
+       DIVISOR
+    ====================================== */
 
     .divider{
       text-align: center;
@@ -141,9 +208,9 @@
       font-size: 1.2rem;
     }
 
-    /* =========================
+    /* ======================================
        TITULOS
-    ========================== */
+    ====================================== */
 
     .section-title{
       text-align: center;
@@ -158,11 +225,12 @@
       color: #8a7a72;
     }
 
-    /* =========================
+    /* ======================================
        TIMELINE
-    ========================== */
+    ====================================== */
 
     .timeline-item{
+
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -180,9 +248,9 @@
       min-width: 120px;
     }
 
-    /* =========================
+    /* ======================================
        BOTONES
-    ========================== */
+    ====================================== */
 
     .btn-gold{
 
@@ -206,17 +274,9 @@
       transform: translateY(-2px);
     }
 
-    /* =========================
-       ICONOS
-    ========================== */
-
-    i{
-      margin-right: 8px;
-    }
-
-    /* =========================
+    /* ======================================
        FOOTER
-    ========================== */
+    ====================================== */
 
     footer{
       background: #efe5da;
@@ -225,13 +285,9 @@
       margin-top: 4rem;
     }
 
-    footer p{
-      margin-bottom: .5rem;
-    }
-
-    /* =========================
+    /* ======================================
        RESPONSIVE
-    ========================== */
+    ====================================== */
 
     @media(max-width:768px){
 
@@ -245,6 +301,14 @@
 
       .card-custom{
         padding: 2rem;
+      }
+
+      .video-section{
+        height: 60vh;
+      }
+
+      .video-overlay h2{
+        font-size: 2.5rem;
       }
 
     }
@@ -284,7 +348,9 @@
 
 <div class="container">
 
-  <!-- BIENVENIDA -->
+  <!-- ======================================
+       MENSAJE
+  ======================================= -->
 
   <section>
 
@@ -306,13 +372,48 @@
 
     </div>
 
-    <div class="divider">
-      ✧ ✧ ✧
+  </section>
+
+  <!-- ======================================
+       VIDEO
+  ======================================= -->
+
+  <section class="video-section">
+
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="video-romantico"
+    >
+
+      <!-- CAMBIA EL NOMBRE SI RENOMBRAS EL VIDEO -->
+      <source src="video/video-boda.mp4" type="video/mp4">
+
+    </video>
+
+    <div class="video-overlay">
+
+      <h2>
+        Nuestra Historia
+      </h2>
+
+      <p>
+        Cada momento juntos nos ha llevado hasta este día
+      </p>
+
     </div>
 
   </section>
 
-  <!-- CEREMONIA -->
+  <div class="divider">
+    ✧ ✧ ✧
+  </div>
+
+  <!-- ======================================
+       CEREMONIA
+  ======================================= -->
 
   <section>
 
@@ -345,13 +446,15 @@
 
     </div>
 
-    <div class="divider">
-      ✧ ✧ ✧
-    </div>
-
   </section>
 
-  <!-- RECEPCION -->
+  <div class="divider">
+    ✧ ✧ ✧
+  </div>
+
+  <!-- ======================================
+       RECEPCION
+  ======================================= -->
 
   <section>
 
@@ -384,13 +487,15 @@
 
     </div>
 
-    <div class="divider">
-      ✧ ✧ ✧
-    </div>
-
   </section>
 
-  <!-- ITINERARIO -->
+  <div class="divider">
+    ✧ ✧ ✧
+  </div>
+
+  <!-- ======================================
+       ITINERARIO
+  ======================================= -->
 
   <section>
 
@@ -462,13 +567,15 @@
 
     </div>
 
-    <div class="divider">
-      ✧ ✧ ✧
-    </div>
-
   </section>
 
-  <!-- CODIGO DE VESTIMENTA -->
+  <div class="divider">
+    ✧ ✧ ✧
+  </div>
+
+  <!-- ======================================
+       VESTIMENTA
+  ======================================= -->
 
   <section>
 
@@ -488,13 +595,15 @@
 
     </div>
 
-    <div class="divider">
-      ✧ ✧ ✧
-    </div>
-
   </section>
 
-  <!-- CONFIRMACION -->
+  <div class="divider">
+    ✧ ✧ ✧
+  </div>
+
+  <!-- ======================================
+       CONFIRMACION
+  ======================================= -->
 
   <section>
 
@@ -508,6 +617,7 @@
         Tu presencia es muy importante para nosotros
       </p>
 
+      <!-- CAMBIA EL TELEFONO -->
       <a
         href="https://wa.me/5215512345678"
         target="_blank"
