@@ -607,35 +607,55 @@
 
   <section>
 
-    <h2 class="section-title">
-      Confirmar Asistencia
-    </h2>
+  <h2 class="section-title">
+    Confirmar Asistencia
+  </h2>
 
-    <div class="card-custom text-center">
+  <div class="card-custom text-center">
 
-      <p class="mb-4">
-        Tu presencia es muy importante para nosotros
-      </p>
+    <p class="mb-4">
+      Tu presencia es muy importante para nosotros
+    </p>
 
-      <!-- CAMBIA EL TELEFONO -->
-      <a
-        href="https://wa.me/5215576844165"
-        target="_blank"
-        class="btn-gold"
+    <div class="mb-3">
+
+      <input
+        type="text"
+        id="nombre"
+        class="form-control"
+        placeholder="Tu nombre"
       >
-        <i class="fab fa-whatsapp"></i>
-        Confirmar asistencia
-      </a>
-
-      <p class="mt-4 text-muted small">
-        Favor de confirmar antes del 30 de Octubre del 2026
-      </p>
 
     </div>
 
-  </section>
+    <div class="mb-3">
 
-</div>
+      <input
+        type="number"
+        id="personas"
+        class="form-control"
+        placeholder="Número de personas"
+      >
+
+    </div>
+
+    <button
+      class="btn-gold"
+      onclick="enviarWhatsApp()"
+    >
+
+      <i class="fab fa-whatsapp"></i>
+      Confirmar asistencia
+
+    </button>
+
+    <p class="mt-4 text-muted small">
+      Favor de confirmar antes del 30 de Octubre del 2026
+    </p>
+
+  </div>
+
+</section>
 
 <!-- ======================================
      FOOTER
@@ -712,6 +732,32 @@ window.addEventListener('scroll', () => {
 
 </script>
 
+  <script>
+
+function enviarWhatsApp(){
+
+  let nombre =
+    document.getElementById("nombre").value;
+
+  let personas =
+    document.getElementById("personas").value;
+
+  let mensaje =
+`Hola, confirmo mi asistencia a la boda.
+
+Nombre: ${nombre}
+
+Número de personas: ${personas}`;
+
+  let url =
+`https://wa.me/5215576844165?text=${encodeURIComponent(mensaje)}`;
+
+  window.open(url, '_blank');
+
+}
+
+</script>
+  
 <!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
