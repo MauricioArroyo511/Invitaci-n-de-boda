@@ -338,7 +338,7 @@
     ====================================== */
 
     footer{
-      background: #2C4763;
+      background: #ffffff;
       padding: 4rem 2rem;
       text-align: center;
       margin-top: 4rem;
@@ -744,17 +744,29 @@
         id="boletos"
         min="1"
         placeholder="Ejemplo: 2"
+        onchange="actualizarMenus()"
       >
     </div>
 
     <div class="mb-3">
-      <label class="form-label">¿Cuántos menús ocuparás?</label>
+      <label class="form-label">Menús para adultos</label>
       <input
         type="number"
         class="form-control"
-        id="menus"
-        min="1"
-        placeholder="Ejemplo: 2"
+        id="menuAdulto"
+        min="0"
+        value="0"
+     >
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Menús infantiles</label>
+      <input
+        type="number"
+        class="form-control"
+        id="menuInfantil"
+        min="0"
+        value="0"
       >
     </div>
 
@@ -918,10 +930,43 @@ window.addEventListener('scroll', () => {
 
 function enviarWhatsApp() {
 
-  const nombre = document.getElementById("nombreInvitado").value;
-  const boletos = document.getElementById("boletos").value;
-  const menus = document.getElementById("menus").value;
-  const alergias = document.getElementById("alergias").value;
+  const nombre =
+    document.getElementById("nombreInvitado").value.trim();
+
+  const boletos =
+    parseInt(document.getElementById("boletos").value) || 0;
+
+  const menuAdulto =
+    parseInt(document.getElementById("menuAdulto").value) || 0;
+
+  const menuInfantil =
+    parseInt(document.getElementById("menuInfantil").value) || 0;
+
+  const alergias =
+    document.getElementById("alergias").value.trim();
+
+  if(nombre === ""){
+
+    alert("Por favor escribe tu nombre.");
+
+    return;
+  }
+
+  if(boletos <= 0){
+
+    alert("Indica cuántos boletos utilizarás.");
+
+    return;
+  }
+
+  if((menuAdulto + menuInfantil) !== boletos){
+
+    alert(
+      "La suma de los menús adultos e infantiles debe ser igual al número de boletos."
+    );
+
+    return;
+  }
 
   const mensaje =
 `Hola, confirmo mi asistencia a la boda de Perla y David!
@@ -930,9 +975,11 @@ Nombre: ${nombre}
 
 Boletos que utilizaré: ${boletos}
 
-Menús requeridos: ${menus}
+Menús para adultos: ${menuAdulto}
 
-Alergias alimentarias: ${alergias}`;
+Menús infantiles: ${menuInfantil}
+
+Alergias alimentarias: ${alergias || "Ninguna"}`;
 
   const telefono = "5215576844165";
 
@@ -943,11 +990,21 @@ Alergias alimentarias: ${alergias}`;
     encodeURIComponent(mensaje);
 
   window.open(url, "_blank");
+}
+  
+</script>
+<script>
 
+  function actualizarMenus(){
+
+  const boletos =
+    parseInt(document.getElementById("boletos").value) || 0;
+
+  document.getElementById("menuAdulto").max = boletos;
+  document.getElementById("menuInfantil").max = boletos;
 }
 
 </script>
-  
 </body>
 </html>
 ```
