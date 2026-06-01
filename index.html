@@ -378,6 +378,22 @@
 
 <body>
 
+<audio id="musicaFondo" loop>
+  <source src="cancion-boda.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+document.addEventListener("click", function() {
+
+  const audio = document.getElementById("musicaFondo");
+
+  audio.play();
+
+}, { once: true });
+
+</script>
+  
 <!-- HERO -->
 
 <div class="hero">
