@@ -338,7 +338,7 @@
     ====================================== */
 
     footer{
-      background: #ffffff;
+      background: #2C4763;
       padding: 4rem 2rem;
       text-align: center;
       margin-top: 4rem;
@@ -720,30 +720,73 @@
     Confirmar Asistencia
   </h2>
 
-  <div class="card-custom text-center">
+  <div class="card-custom">
 
-    <p class="mb-4">
+    <p class="text-center mb-4">
       Tu presencia es muy importante para nosotros
     </p>
 
-    <a
-      href="https://wa.me/5215576844165?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Perla%20y%20David"
-      target="_blank"
-      class="btn-gold"
-    >
-      <i class="fab fa-whatsapp"></i>
-      Confirmar asistencia
-    </a>
+    <div class="mb-3">
+      <label class="form-label">Nombre completo</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombreInvitado"
+        placeholder="Escribe tu nombre"
+      >
+    </div>
 
-    <p class="mt-4">
-      Favor de confirmar antes del 30 de Octubre del 2026
-    </p>
+    <div class="mb-3">
+      <label class="form-label">Número de boletos que utilizarás</label>
+      <input
+        type="number"
+        class="form-control"
+        id="boletos"
+        min="1"
+        placeholder="Ejemplo: 2"
+      >
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">¿Cuántos menús ocuparás?</label>
+      <input
+        type="number"
+        class="form-control"
+        id="menus"
+        min="1"
+        placeholder="Ejemplo: 2"
+      >
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label">¿Tienes alguna alergia alimentaria?</label>
+      <textarea
+        class="form-control"
+        id="alergias"
+        rows="3"
+        placeholder="Escribe aquí tus alergias o indica 'Ninguna'"
+      ></textarea>
+    </div>
+
+    <div class="text-center">
+
+      <button
+        class="btn-gold"
+        onclick="enviarWhatsApp()"
+      >
+        <i class="fab fa-whatsapp"></i>
+        Confirmar asistencia
+      </button>
+
+      <p class="mt-4">
+        Favor de confirmar antes del 30 de Octubre del 2026
+      </p>
+
+    </div>
 
   </div>
 
 </section>
-  
-</div>
 
 <div class="divider">
   ✧ ✧ ✧
@@ -870,7 +913,41 @@ window.addEventListener('scroll', () => {
 
 <!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  
+<script>
 
+function enviarWhatsApp() {
+
+  const nombre = document.getElementById("nombreInvitado").value;
+  const boletos = document.getElementById("boletos").value;
+  const menus = document.getElementById("menus").value;
+  const alergias = document.getElementById("alergias").value;
+
+  const mensaje =
+`Hola, confirmo mi asistencia a la boda de Perla y David!
+
+Nombre: ${nombre}
+
+Boletos que utilizaré: ${boletos}
+
+Menús requeridos: ${menus}
+
+Alergias alimentarias: ${alergias}`;
+
+  const telefono = "5215576844165";
+
+  const url =
+    "https://wa.me/" +
+    telefono +
+    "?text=" +
+    encodeURIComponent(mensaje);
+
+  window.open(url, "_blank");
+
+}
+
+</script>
+  
 </body>
 </html>
 ```
