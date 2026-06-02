@@ -25,12 +25,29 @@
     /* ======================================
        ESTILOS GENERALES
     ====================================== */
+    /* ======================================
+     FUENTES PERSONALIZADAS
+    ====================================== */
 
+    @font-face {
+      font-family: 'MontserratBold';
+      src: url('Montserrat-Bold.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'MontserratRegular';
+      src: url('Montserrat-Regular.ttf') format('truetype');
+    }
+
+    @font-face {
+    font-family: 'Quadrian';
+    src: url('Quadrian.otf') format('opentype');
+    }
     body{
-      background: #2C4763;
-      font-family: 'Montserrat', sans-serif;
-      color: #222;
-      overflow-x: hidden;
+    background: #2C4763;
+    font-family: 'Quadrian', sans-serif;
+    color: #A9B9C9;
+    overflow-x: hidden;
     }
 
     .container{
@@ -38,7 +55,7 @@
     }
 
     h1,h2,h3,h4,h5{
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'MontserratRegular', serif;
     }
 
     section{
@@ -80,6 +97,7 @@
     }
 
     .hero h1{
+      font-family: 'MontserratBold', sans-serif;
       font-size: 6rem;
       font-weight: 300;
       line-height: 1;
